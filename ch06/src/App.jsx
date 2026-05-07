@@ -1,13 +1,21 @@
+import { useEffect } from "react";
 import { useState } from "react"
 
 function App() {
-
+  
+  const [saveUserList, setSaveUserList] = useState([]);
+  
   const [currentPage, setCurrentPage] = useState();
   const [pages, setPages] = useState({
     number: <Number />,
     table: <Table />,
-    table2: <Table2 />,
+    table2: <Table2 saveUserList={saveUserList} setSaveUserList={setSaveUserList} />,
   });
+
+  useEffect(() => {
+    console.log(saveUserList)
+    setCurrentPage(pages.table2);
+  }, [saveUserList])
 
   const handlePageButtonOnClick = (e) => {
     setCurrentPage(pages[e.target.value]);
@@ -76,9 +84,7 @@ function Table() {
   )
 }
 
-function Table2() {
-
-  const [saveUserList, setSaveUserList] = useState([]);
+function Table2({saveUserList, setSaveUserList}) {
 
   const [checkText, setCheckText] = useState({
     no: "",
@@ -87,6 +93,7 @@ function Table2() {
   });
 
   const handleAddButtonOnClick = (e) => {
+    
     setSaveUserList([
       ...saveUserList,
       // checkText,   // {...checkText} 로 추가하면 재정의가 가능(깊은 복사)

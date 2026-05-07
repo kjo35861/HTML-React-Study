@@ -1,0 +1,42 @@
+import { useEffect, useReducer, useRef, useState } from "react";
+
+
+function App() {
+
+  const boxRef = useRef();
+  const num = useRef(0);
+  const [ n, setN ] = useState(0);
+
+  
+  useEffect(() => {
+    // console.log(document.querySelector("#box"));
+    // console.log(boxRef.current);
+    // console.log(boxRef.current.classList);
+
+    boxRef.current.style.width = "100px";
+    boxRef.current.style.height = "100px";
+    boxRef.current.style.backgroundColor = "#222";
+
+    // console.log(boxRef.current.style);
+  });
+
+  const handleOnClick = () => {
+    num.current += 10;
+    setN(num.current);
+    // console.log(num.current);
+  }
+
+  return (
+    <>
+      <div id="box" ref={boxRef} className="test abc">
+
+      </div>
+      <h1>
+        {num.current}
+      </h1>
+      <button onClick={handleOnClick}>증가</button>
+    </>
+  )
+}
+
+export default App
