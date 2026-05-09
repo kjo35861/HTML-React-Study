@@ -16,10 +16,6 @@ function CardCheck() {
     const [numbList, setNumbList] = useState([1, 2, 3, 4, 5, 6]);   // backCard 에 표시 될 숫자
     const [getNumbList, setGetNumbList] = useState([]);
     
-    const [firstNumb, setFirstNumb] = useState();
-    const [secondNumb, setSecondNumb] = useState();
-    // const firstNumb = -1;
-    // const secondNumb = -1;
 
 
     useEffect(() => {
