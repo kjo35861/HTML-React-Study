@@ -1,21 +1,21 @@
-import { useParams } from "react-router-dom";
-import * as s from "./styles"
-import { GiCardRandom, GiRocketThruster } from "react-icons/gi";
-import { css } from "@emotion/react";
-import GameCard from "../../components/GameCard/GameCard";
-import CardNumbs from "../../components/CardNumbs/CardNumbs";
 import { useEffect, useState } from "react";
-import CardCheck from "../../components/CardCheck/CardCheck";
+import GameCard from "../GameCard/GameCard";
+import CardNumbs from "../CardNumbs/CardNumbs";
 
 
 
-function Game() {
-    const params = useParams();
+function CardCheck() {
+
+    // if (!firstNumb) {
+    //     setFirstNumb(getPickNumb);
+    // } else if (firstNumb) {
+    //     setSecondNumb(getPickNumb);
+    // }
 
     const cardLength = new Array(12).fill("");                      // Array의 길이를 변수로 잡으면 Home에서 원하는 갯수를 받아와서 그 수만큼 카드생성 가능 <- 이렇게 쓸려면 numbList도 수정해야함
     const [numbList, setNumbList] = useState([1, 2, 3, 4, 5, 6]);   // backCard 에 표시 될 숫자
     const [getNumbList, setGetNumbList] = useState([]);
-
+    
     const [firstNumb, setFirstNumb] = useState();
     const [secondNumb, setSecondNumb] = useState();
     // const firstNumb = -1;
@@ -45,32 +45,19 @@ function Game() {
 
     }
 
-
-
-
-
     return <>
-        <div css={s.layout}>
-            <header>
-                <h1><GiCardRandom />CARD MATCHING GAME<GiCardRandom /></h1>
-                <h3>플레이어: {params.username}</h3>
-            </header>
-            <main>
-                {
-                    cardLength.map((_, index) => (
-                        <GameCard
-                            key={index}
-                            getNumb={getNumbList[index]}
-                            onClick={() => handleCardOnClick(index, getNumbList[index])}
-                        />
-                    ))
-                }
-            </main>
-        </div>
+        {
+            cardLength.map((_, index) => (
+                <GameCard
+                    key={index}
+                    getNumb={getNumbList[index]}
+                    onClick={() => handleCardOnClick(index, getNumbList[index])}
+                />
+            ))
+        }
 
     </>
 }
 
 
-
-export default Game;
+export default CardCheck
