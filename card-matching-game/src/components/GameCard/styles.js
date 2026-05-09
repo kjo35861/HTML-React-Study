@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import image from "./images/image.jpg"
 
 export const layout = css`
+    transition: all 0.3s ease-in-out;
     box-sizing: border-box;
     border-radius: 8px;
     padding: 10px;
@@ -14,6 +15,7 @@ export const layout = css`
     &:hover {
         transform: scale(105%);
     }
+
 `;
 
 
@@ -43,4 +45,19 @@ export const backCard = css`
     font-weight: 600;
     color: #dbdbdb;
     background-color: #2a0c6e;
+`
+
+export const removeCard = css`
+    transform: scale(90%);
+    background-color: rgba(233, 221, 221, 0.7);
+
+    & > div > div {
+        background-color: rgba(41, 12, 110, 0.85);
+        color: rgba(171, 171, 171, 0.85);
+    }
+
+    &:hover {
+        transform: scale(90%);
+    }
+
 `
