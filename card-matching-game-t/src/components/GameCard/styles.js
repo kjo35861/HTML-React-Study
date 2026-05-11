@@ -18,7 +18,7 @@ export const layout = (isOpen) => css`
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 10px #ffffff88;
     transform: ${isOpen ? "rotateY(180deg);" : "rotateY(0deg);"};
-`
+`              
 
 export const front = css`
     position: absolute;

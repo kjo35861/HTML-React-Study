@@ -33,8 +33,8 @@ function Card({ cardList, setCardList }) {
         }
 
 
-        console.log(firstPick);
-        console.log(secondPick);
+        // console.log(firstPick);
+        // console.log(secondPick);
     }
 
     useEffect(() => {
