@@ -17,13 +17,13 @@ function Signup() {
                     <TextInput title={"이름"} name={"fullName"} />
                 </div>
                 <div>
-                    <TextInput title={"이메일"} name={"fullName"} />
+                    <TextInput title={"이메일"} name={"email"} />
                 </div>
                 <div>
-                    <PasswordInput title={"비밀번호"} name={"fullName"} />
+                    <PasswordInput title={"비밀번호"} name={"password"} />
                 </div>
                 <div>
-                    <PasswordInput title={"비밀번호 확인"} name={"fullName"} />
+                    <PasswordInput title={"비밀번호 확인"} name={"passwordCheck"} />
                 </div>
                 <label>
                     <div css={s.agree}>
