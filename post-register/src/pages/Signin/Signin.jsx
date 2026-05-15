@@ -20,7 +20,7 @@ function Signin() {
         password: "1q2w3e4r!",
     });
 
-    const requestSignin = (email, password) => {
+    const requestSignin = async (email, password) => {
         const users = JSON.parse(localStorage.getItem("users"));
         const foundUser = users.find(user => user.email === email && user.password === password);
         if (!foundUser) {
@@ -39,7 +39,7 @@ function Signin() {
     }
 
     const handleInputOnChange = (e) => {
-        setInputValues(prev => {
+        setInputValues((prev) => {
             return {
                 ...prev,
                 [e.target.name]: e.target.value,
