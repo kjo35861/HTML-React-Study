@@ -84,7 +84,11 @@ function PostRegister() {
     const handleSubmitOnClick = () => {
         let posts = JSON.parse(localStorage.getItem("posts"));
         posts = posts ?? [];
+        const ids = posts.map(post => post.id)
+        // const newId = Math.max(ids.length === 0 ? 0 : ids) + 1;
+        const newId = Math.max(...ids, 0) + 1;
         const newPost = {
+            "id": newId,
             "title": title,
             "content": value,
             "thumbnail": thumbnail,
@@ -93,7 +97,7 @@ function PostRegister() {
             "user": authentication.data.data,
         }
         posts = [...posts, newPost]
-        console.log(posts);
+
         localStorage.setItem("posts", JSON.stringify(posts));
         alert("발행이 완료되었습니다.");
         clearInterval(interval);
