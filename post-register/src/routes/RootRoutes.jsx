@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import PostList from "../pages/PostList/PostList";
 import PostRegister from "../pages/PostRegister/PostRegister";
 import Menus from "../pages/Menus/Menus";
+import Restaurants from "../pages/Restaurants/Restaurants";
+import Customers from "../pages/Customers/Customers";
 
 
 function RootRoutes() {
@@ -14,7 +16,7 @@ function RootRoutes() {
     const { pathname } = useLocation();
     const navigate = useNavigate();
     const authenticationQuery = useAuthentication(localStorage.getItem("accessToken"));
-
+    console.log(authenticationQuery);
     useEffect(() => {
         if (!authenticationQuery.isLoading) {
             const status = authenticationQuery.data.status;
@@ -22,6 +24,7 @@ function RootRoutes() {
                 navigate("/auth/signin", {
                     replace: true,              // history를 남기지 않음
                 });
+                console.log(status);
             }
 
             if (status === 200 && pathname.startsWith("/auth/")) {
@@ -41,6 +44,8 @@ function RootRoutes() {
                     <Route path="/" element={<PostList />} />
                     <Route path="/write" element={<PostRegister />} />
                     <Route path="/menus" element={<Menus/>} />
+                    <Route path="/restaurants" element={<Restaurants/>} />
+                    <Route path="/customers" element={<Customers/>} />
                     <Route path="/auth/*" element={<AuthRoutes />} />
                     <Route path="*" element={<>페이지를 찾을 수 없습니다.</>} />
                 </Routes>
